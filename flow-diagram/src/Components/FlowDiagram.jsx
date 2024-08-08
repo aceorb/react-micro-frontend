@@ -7,6 +7,7 @@ import {
   Background,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import useSetSelectedComponent from "../hooks/useSetSelectedComponent";
 
 const initialNodes = [
   {
@@ -57,7 +58,9 @@ const rfStyle = {
   backgroundColor: '#D0C0F7',
 };
 
-function Flow() {
+function Flow({id}) {
+  useSetSelectedComponent(id);
+
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
 
