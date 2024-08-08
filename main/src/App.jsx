@@ -36,7 +36,7 @@ const App = () => {
   }, []);
 
   if (loading) return <Loader/>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Error Fetching Menu Json Data: {error}</div>;
 
   return (
     <>
