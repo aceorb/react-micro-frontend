@@ -1,5 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from 'react-redux';
+
 import {setActiveComponent} from "../redux/actions";
 
 export default () => {
@@ -27,9 +28,7 @@ export default () => {
               </span>
             ))}
           </div>
-
           <div className="flex items-center space-x-4">
-
             <a href="#" className="flex h-10 items-center px-2 rounded-lg border border-gray-200 hover:border-gray-300 focus:outline-none hover:shadow-inner">
               <span className="pl-1 text-gray-500 text-md">Global State:</span>
               <span className="pl-1 text-gray-500 text-md">{globalState}</span>

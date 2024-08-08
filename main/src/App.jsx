@@ -5,6 +5,7 @@ import { setMenuItems } from './redux/actions';
 import "./index.scss";
 import Menu from "./Components/Menu";
 import ViewPanel from "./Components/ViewPanel";
+import Loader from "./Components/Loader";
 
 const App = () => {
   const dispatch = useDispatch();

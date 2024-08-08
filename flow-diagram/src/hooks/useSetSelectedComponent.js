@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { setSelectedComponent } from '../redux/actions';
 
 const useSetSelectedComponent = (id) => {

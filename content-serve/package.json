@@ -1,9 +1,9 @@
 {
-  "name": "@micro-frontends-demo/content",
+  "name": "@react-micro-frontend/content-serve",
   "version": "1.0.0",
-  "description": "Static content for a micro frontends demo",
-  "repository": "git@github.com:micro-frontends-demo/content",
-  "author": "Cam Jackson <camjackson89@gmail.com>",
+  "description": "Static content for a micro frontends",
+  "repository": "",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "build": "node buildData.js",

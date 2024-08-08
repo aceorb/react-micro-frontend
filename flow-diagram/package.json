@@ -1,5 +1,5 @@
 {
-  "name": "order",
+  "name": "@react-micro-frontend/flow-diagram",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
@@ -10,8 +10,8 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Jack Herrington",
-    "email": "jherr@pobox.com"
+    "name": "",
+    "email": ""
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

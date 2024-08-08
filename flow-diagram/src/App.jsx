@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+
 import "./index.scss";
 import FlowDiagram from "./Components/FlowDiagram";
 const App = () => {

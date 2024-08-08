@@ -1,5 +1,6 @@
 import React, {lazy, Suspense} from 'react';
 import { useSelector } from 'react-redux';
+
 import Loader from "./Loader";
 import Error from "./Error";
 
@@ -19,9 +20,7 @@ const componentMap = {
 };
 export default () => {
 	const activeComponent = useSelector(state => state.activeComponent);
-
 	const DynamicComponent = activeComponent ? componentMap[`${activeComponent.component}`] : null;
-
 	return (
 		<>
 			<Suspense fallback={<Loader />}>

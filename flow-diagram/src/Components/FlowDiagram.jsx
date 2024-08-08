@@ -7,6 +7,7 @@ import {
   Background,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+
 import useSetSelectedComponent from "../hooks/useSetSelectedComponent";
 
 const initialNodes = [
@@ -92,7 +93,6 @@ function Flow({id}) {
         <Background />
       </ReactFlow>
     </div>
-
   );
 }
 
