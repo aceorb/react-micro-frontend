@@ -1,61 +1,42 @@
-import React, { Suspense, useState, useEffect } from "react";
-import {  Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 
 import { setMenuItems } from './redux/actions';
-
 import "./index.scss";
-
 import Menu from "./Components/Menu";
 import ViewPanel from "./Components/ViewPanel";
-
-
-
-const exampleMenuConfig = [
-  {
-    id: '1',
-    label: 'Product 1',
-    app:'product',
-    component: 'ProductApp',
-    version: 'v1',
-  },
-  {
-    id: '2',
-    label: 'Product 2',
-    app:'product',
-    component: 'ProductApp',
-    version: 'v2',
-  },
-  {
-    id: '3',
-    label: 'RegistrationForm 1',
-    app:'product',
-    component: 'RegistrationFormApp',
-    version: 'v1',
-  },
-  {
-    id: '4',
-    label: 'RegistrationForm 3',
-    app:'product',
-    component: 'RegistrationFormApp',
-    version: 'v3',
-  },
-  {
-    label: 'FlowDiagram',
-    app:'flowdiagram',
-    component: 'FlowDiagramApp',
-  }
-];
 
 const App = () => {
   const dispatch = useDispatch();
   const [ loading, setLoading ] = useState(false);
+  const [error, setError] = useState(null);
+  const fetchMenuData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/menu.json');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      dispatch(setMenuItems(data));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    // Fetch or use configuration JSON here
-    // For now, using static example data
-    dispatch(setMenuItems(exampleMenuConfig));
-  }, [dispatch]);
+    fetchMenuData();
+
+    const intervalId = setInterval(() => {
+      fetchMenuData();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  if (loading) return <Loader/>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <>
